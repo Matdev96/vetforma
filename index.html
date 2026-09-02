@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/wp/logo-vetorizada-1.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800;900&family=Roboto:wght@400&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    VETFORMA — clone fiel a partir do export Elementor real
@@ -30,7 +30,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:var(--font);color:#fff;background:var(--navy-950);line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:var(--font);color:#fff;background:var(--navy-950);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ul{margin:0;padding:0;list-style:none}
@@ -77,17 +77,60 @@ p{margin:0 0 16px}
 .destaque--3{background:var(--blue-400);color:var(--navy-950)}
 .destaque--4{background:var(--blue-100);color:var(--navy-950)}
 
-/* ---------- Split sections ---------- */
-.split{padding:80px 0;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.split.reverse .split-media{order:2}
-.split-text .eyebrow{color:var(--gold);font-weight:800;text-transform:uppercase;font-size:1.3rem}
-.split-media img{border-radius:var(--radius);width:100%}
-.split-media.stack{display:flex;flex-direction:column;gap:20px}
+/* ---------- Seções 1/2/3 — reprodução exata do Elementor (elementor-1213) ----------
+   Layout reproduzido por deslocamento manual (margens negativas), não por
+   grid/flex "limpo" — é assim que o Elementor original posiciona os elementos.
+   "Motiva Sans" é fonte paga, não disponível via Google Fonts: mantida na
+   declaração font-family como preferência, com Mulish como alternativa
+   geométrica próxima (fallback real, já que não há arquivo da fonte original
+   para servir via @font-face). Roboto (seção 3, parágrafo) é Google Font. ---------- */
+.s-box{max-width:1140px;margin:0 auto;padding:0 10px}
 
-/* ---------- Campo (verde) CTA ---------- */
-.campo-cta{padding:70px 0;text-align:center}
-.campo-cta h2{color:#fff;font-size:1.6rem}
-.campo-cta p{max-width:760px;margin-left:auto;margin-right:auto}
+.s1{min-height:810px;display:flex;align-items:center}
+.s1-row{display:flex;align-items:center;width:100%}
+.s1-left{width:71%;margin-top:170px}
+.s1-right{width:29%}
+.s1-title{font-family:'Motiva Sans','Mulish',sans-serif;font-size:37px;font-weight:400;line-height:44px;color:var(--gold);width:61%;margin:0 0 16px}
+.s1-text{width:58%}
+.s1-text p{font-family:'Motiva Sans','Mulish',sans-serif;font-size:16px;font-weight:400;color:#fff;margin:0 0 16px}
+.s1-photo{width:90.509%;margin-top:21px}
+.s1-photo img{width:64%;max-width:none}
+.s1-right img{margin-top:-512px;margin-right:-806px;margin-left:-370px;max-width:none}
+
+.s2{min-height:608px;display:flex;align-items:center}
+.s2-row{display:flex;align-items:center;width:100%}
+.s2-left{width:36%;margin-top:51px}
+.s2-left img{width:100%;margin-top:-160px;margin-left:-438px;max-width:none}
+.s2-right{width:64%;margin-top:-710px;margin-left:85px}
+.s2-text{width:71%;margin-left:51px;margin-right:-73px}
+.s2-text p{font-family:'Motiva Sans','Mulish',sans-serif;font-size:16px;font-weight:400;color:#fff}
+.s2-photo{width:90.509%;margin-top:21px;margin-right:-76px;margin-left:50px}
+.s2-photo img{width:83%;max-width:none}
+
+.s3{min-height:417px}
+.s3-col{min-height:620px;background-image:url('assets/wp/group-2010.png');background-position:initial;background-repeat:no-repeat;background-size:cover;margin-top:-445px;text-align:center;padding:1px 0}
+.s3-title{font-family:'Motiva Sans','Mulish',sans-serif;font-size:28px;font-weight:400;line-height:35px;color:#fff;margin:132px 0 -72px -478px;padding:0}
+.s3-title.mobile{display:none}
+.s3-text{font-family:'Roboto',sans-serif;font-weight:400;color:#fff;width:49%;margin:58px -17px -120px 58px;text-align:center}
+.s3-btn{display:inline-block;font-family:'Motiva Sans','Mulish',sans-serif;font-size:16px;font-weight:500;background:var(--gold);color:#fff;border-radius:23px;padding:15px 100px;margin:132px 0 100px -494px;text-align:center}
+.s3-btn:hover{filter:brightness(1.1)}
+
+@media (max-width:767px){
+  .s1-row{flex-direction:column}
+  .s1-left,.s1-right{width:100%;margin-top:0}
+  .s1-title,.s1-text{width:100%}
+  .s2-row{flex-direction:column}
+  .s2-left,.s2-right{width:100%;margin-top:0;margin-left:0}
+  .s2-left img{margin-top:211px;margin-left:-10px}
+  .s2-text{width:100%;margin-left:0;margin-right:0;margin-top:-29px}
+  .s2-text p{font-size:18px;text-align:center}
+  .s3{min-height:1440px}
+  .s3-col{background-position-y:33px}
+  .s3-title.desktop{display:none}
+  .s3-title.mobile{display:block;margin:-46px auto -108px;width:297px}
+  .s3-text{font-size:18px;margin:111px auto 0;width:100%}
+  .s3-btn{margin:17px 0 87px 0}
+}
 
 /* ---------- Gold cards ---------- */
 .gold-cards{padding:60px 0;display:grid;grid-template-columns:1fr 1fr;gap:28px}
@@ -213,34 +256,49 @@ p{margin:0 0 16px}
 </div>
 
 <div class="wood">
-  <div class="container split">
-    <div class="split-text">
-      <span class="eyebrow">Formação veterinária prática que prepara para o mercado real</span>
-      <p style="margin-top:20px">Na Vetforma, acreditamos que a formação veterinária precisa ir além da sala de aula. Nossos cursos veterinários práticos são desenvolvidos para transformar teoria em experiência real, preparando estudantes e profissionais para atuar com mais segurança, técnica e confiança no campo.</p>
-      <p>Cada treinamento combina conhecimento técnico com vivência prática em fazenda escola, criando uma jornada completa de capacitação veterinária prática.</p>
+  <section class="s1">
+    <div class="s-box s1-row">
+      <div class="s1-left">
+        <h2 class="s1-title">FORMAÇÃO VETERINÁRIA PRÁTICA QUE PREPARA PARA O MERCADO REAL</h2>
+        <div class="s1-text">
+          <p>Na Vetforma, acreditamos que a formação veterinária precisa ir além da sala de aula.<br>Nossos cursos veterinários práticos são desenvolvidos para transformar teoria em experiência real, preparando estudantes e profissionais para atuar com mais segurança, técnica e confiança no campo.</p>
+          <p>Cada treinamento combina conhecimento técnico com vivência prática em fazenda escola, criando uma jornada completa de capacitação veterinária prática.</p>
+        </div>
+        <div class="s1-photo"><img src="assets/wp/dsc01101-1.png" alt="Prática veterinária com ultrassom em cavalo"></div>
+      </div>
+      <div class="s1-right">
+        <img src="assets/wp/168368668_10647750-1.png" alt="">
+      </div>
     </div>
-    <div class="split-media stack">
-      <img src="assets/wp/dsc01101-1.png" alt="Prática veterinária em fazenda escola">
-      <img src="assets/wp/168368668_10647750-1.png" alt="Cão em atendimento veterinário">
-    </div>
-  </div>
+  </section>
 
-  <div class="container split reverse">
-    <div class="split-media">
-      <img src="assets/wp/38708456_8602286-1.png" alt="Aluno em treinamento prático">
+  <section class="s2">
+    <div class="s-box s2-row">
+      <div class="s2-left">
+        <img src="assets/wp/38708456_8602286-1.png" alt="">
+      </div>
+      <div class="s2-right">
+        <div class="s2-text">
+          <p>O objetivo não é apenas ensinar conteúdos, mas desenvolver habilidades que o mercado exige diariamente na pecuária e na área pet.</p>
+          <p>Nossa metodologia valoriza o aprendizado ativo, onde o aluno participa, executa e aprende diretamente com profissionais que vivem a rotina da medicina veterinária.</p>
+        </div>
+        <div class="s2-photo"><img src="assets/wp/dsc01095-1.png" alt="Aluna em prática veterinária com equino"></div>
+      </div>
     </div>
-    <div class="split-text">
-      <p>O objetivo não é apenas ensinar conteúdos, mas desenvolver habilidades que o mercado exige diariamente na pecuária e na área pet.</p>
-      <p>Nossa metodologia valoriza o aprendizado ativo, onde o aluno participa, executa e aprende diretamente com profissionais que vivem a rotina da medicina veterinária.</p>
-      <img src="assets/wp/dsc01095-1.png" alt="Prática veterinária" style="border-radius:14px;margin-top:12px">
-    </div>
-  </div>
+  </section>
 
-  <div class="container campo-cta">
-    <h2>Ensino veterinário prático em ambiente de campo</h2>
-    <p>Um dos grandes diferenciais da Vetforma é a experiência em fazenda escola veterinária, onde o aprendizado acontece em contato direto com diferentes espécies e rotinas reais de manejo. Esse ambiente proporciona uma formação veterinária prática mais completa, permitindo que o aluno desenvolva habilidades técnicas em situações reais, com acompanhamento profissional e estrutura preparada para ensino. Ao vivenciar o clima do campo e os desafios da profissão, o aluno amplia sua visão técnica e se prepara para atuar com excelência em diferentes áreas da medicina veterinária.</p>
-    <a href="https://wa.me/5519998724537?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20cursos%20da%20Vetforma" class="btn btn-gold" target="_blank" rel="noopener">Saiba mais</a>
-  </div>
+  <section class="s3">
+    <div class="s-box">
+      <div class="s3-col">
+        <h2 class="s3-title desktop">Ensino veterinário prático<br>em ambiente de campo</h2>
+        <h2 class="s3-title mobile">Ensino veterinário prático em ambiente de campo</h2>
+        <div class="s3-text">
+          <p>Um dos grandes diferenciais da Vetforma é a experiência em fazenda escola veterinária, onde o aprendizado acontece em contato direto com diferentes espécies e rotinas reais de manejo.<br>Esse ambiente proporciona uma formação veterinária prática mais completa, permitindo que o aluno desenvolva habilidades técnicas em situações reais, com acompanhamento profissional e estrutura preparada para ensino.<br>Ao vivenciar o clima do campo e os desafios da profissão, o aluno amplia sua visão técnica e se prepara para atuar com excelência em diferentes áreas da medicina veterinária.</p>
+        </div>
+        <a href="https://wa.me/5519998724537?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20cursos%20da%20Vetforma" class="s3-btn" target="_blank" rel="noopener">Saiba mais</a>
+      </div>
+    </div>
+  </section>
 
   <div class="container gold-cards">
     <div class="gold-card">
