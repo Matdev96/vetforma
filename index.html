@@ -66,16 +66,26 @@ p{margin:0 0 16px}
 .hero p{max-width:600px;font-size:1rem;text-shadow:0 1px 8px rgba(0,0,0,.5)}
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:8px}
 
-/* ---------- Destaques ---------- */
-.destaques{display:grid;grid-template-columns:repeat(4,1fr)}
-.destaque{padding:40px 26px;text-align:center}
+/* ---------- Destaques (elementor section 571fb6f — reprodução exata) ----------
+   Seção: layout boxed (1140px), min-height:137px, fundo BACKGROUND-WOOD-1.png,
+   column_position:top, structure 4 colunas iguais. Cada coluna carrega SUA
+   PRÓPRIA margem negativa (-80px/-81px no topo, 10px nas laterais) — o efeito
+   de "estourar" para dentro do hero vem de cada card individualmente, não de
+   um deslocamento único no wrapper. ---------- */
+.destaques-section{min-height:137px;background:var(--navy-950) url('assets/wp/background-wood-1.png') repeat;background-size:520px auto;position:relative}
+.destaques{display:flex;align-items:flex-start}
+.destaque{flex:1;padding:40px 26px;text-align:center;margin:-80px 10px 0}
 .destaque img{width:52px;height:52px;margin:0 auto 18px}
 .destaque h3{font-size:1rem;font-weight:700;margin-bottom:8px}
 .destaque p{font-size:.85rem;margin:0;opacity:.95}
 .destaque--1{background:var(--blue-600)}
 .destaque--2{background:var(--blue-500)}
-.destaque--3{background:var(--blue-400);color:var(--navy-950)}
+.destaque--3{background:var(--blue-400);color:var(--navy-950);margin-top:-81px}
 .destaque--4{background:var(--blue-100);color:var(--navy-950)}
+@media (max-width:767px){
+  .destaques{flex-direction:column}
+  .destaque{margin:0}
+}
 
 /* ---------- Seções 1/2/3 — reprodução exata do Elementor (elementor-1213) ----------
    Layout reproduzido por deslocamento manual (margens negativas), não por
@@ -86,22 +96,18 @@ p{margin:0 0 16px}
    para servir via @font-face). Roboto (seção 3, parágrafo) é Google Font. ---------- */
 .s-box{max-width:1140px;margin:0 auto;padding:0 10px}
 
-.s1{min-height:810px;display:flex;align-items:center}
-.s1-row{display:flex;align-items:center;width:100%}
-.s1-left{width:71%;margin-top:170px}
-.s1-right{width:29%}
+.s1{min-height:810px;display:flex;align-items:center;position:relative;overflow:visible}
+.s1-cutout{position:absolute;right:0;top:clamp(30px,7vw,130px);width:clamp(200px,24vw,420px);max-width:none;z-index:1;pointer-events:none}
+.s1-left{width:71%;margin-top:170px;position:relative;z-index:2}
 .s1-title{font-family:'Motiva Sans','Mulish',sans-serif;font-size:37px;font-weight:400;line-height:44px;color:var(--gold);width:61%;margin:0 0 16px}
 .s1-text{width:58%}
 .s1-text p{font-family:'Motiva Sans','Mulish',sans-serif;font-size:16px;font-weight:400;color:#fff;margin:0 0 16px}
 .s1-photo{width:90.509%;margin-top:21px}
 .s1-photo img{width:64%;max-width:none}
-.s1-right img{margin-top:-512px;margin-right:-806px;margin-left:-370px;max-width:none}
 
-.s2{min-height:608px;display:flex;align-items:center}
-.s2-row{display:flex;align-items:center;width:100%}
-.s2-left{width:36%;margin-top:51px}
-.s2-left img{width:100%;margin-top:-160px;margin-left:-438px;max-width:none}
-.s2-right{width:64%;margin-top:-710px;margin-left:85px}
+.s2{min-height:608px;display:flex;align-items:center;position:relative;overflow:visible}
+.s2-cutout{position:absolute;left:0;bottom:clamp(-70px,-7vw,-20px);width:clamp(220px,26vw,420px);max-width:none;z-index:1;pointer-events:none}
+.s2-right{width:64%;margin-left:36%;position:relative;z-index:2}
 .s2-text{width:71%;margin-left:51px;margin-right:-73px}
 .s2-text p{font-family:'Motiva Sans','Mulish',sans-serif;font-size:16px;font-weight:400;color:#fff}
 .s2-photo{width:90.509%;margin-top:21px;margin-right:-76px;margin-left:50px}
@@ -116,13 +122,12 @@ p{margin:0 0 16px}
 .s3-btn:hover{filter:brightness(1.1)}
 
 @media (max-width:767px){
-  .s1-row{flex-direction:column}
-  .s1-left,.s1-right{width:100%;margin-top:0}
+  .s1-left{width:100%;margin-top:0;text-align:center}
   .s1-title,.s1-text{width:100%}
-  .s2-row{flex-direction:column}
-  .s2-left,.s2-right{width:100%;margin-top:0;margin-left:0}
-  .s2-left img{margin-top:211px;margin-left:-10px}
-  .s2-text{width:100%;margin-left:0;margin-right:0;margin-top:-29px}
+  .s1-cutout{width:clamp(140px,40vw,220px);top:-30px}
+  .s2-right{width:100%;margin-left:0;text-align:center}
+  .s2-cutout{width:clamp(160px,44vw,240px);bottom:-30px}
+  .s2-text{width:100%;margin-left:0;margin-right:0}
   .s2-text p{font-size:18px;text-align:center}
   .s3{min-height:1440px}
   .s3-col{background-position-y:33px}
@@ -232,32 +237,35 @@ p{margin:0 0 16px}
   </div>
 </section>
 
-<div class="destaques">
-  <div class="destaque destaque--1">
-    <img src="assets/wp/farm-house-1.svg" alt="">
-    <h3>Aprendizado prático em fazenda escola</h3>
-    <p>Contato direto com animais e rotina real de trabalho.</p>
+<section class="destaques-section">
+  <div class="s-box destaques">
+    <div class="destaque destaque--1">
+      <img src="assets/wp/farm-house-1.svg" alt="">
+      <h3>Aprendizado prático em fazenda escola</h3>
+      <p>Contato direto com animais e rotina real de trabalho.</p>
+    </div>
+    <div class="destaque destaque--2">
+      <img src="assets/wp/vet-1.svg" alt="">
+      <h3>Profissionais que vivem o que ensinam</h3>
+      <p>Cursos ministrados por veterinários atuantes.</p>
+    </div>
+    <div class="destaque destaque--3">
+      <img src="assets/wp/protection-1-1.svg" alt="">
+      <h3>Ensino técnico com foco em segurança profissional</h3>
+      <p>Mais confiança para atuar no campo.</p>
+    </div>
+    <div class="destaque destaque--4">
+      <img src="assets/wp/multiple-users-silhouette-1.svg" alt="">
+      <h3>Turmas com acompanhamento próximo</h3>
+      <p>Experiência personalizada.</p>
+    </div>
   </div>
-  <div class="destaque destaque--2">
-    <img src="assets/wp/vet-1.svg" alt="">
-    <h3>Profissionais que vivem o que ensinam</h3>
-    <p>Cursos ministrados por veterinários atuantes.</p>
-  </div>
-  <div class="destaque destaque--3">
-    <img src="assets/wp/protection-1-1.svg" alt="">
-    <h3>Ensino técnico com foco em segurança profissional</h3>
-    <p>Mais confiança para atuar no campo.</p>
-  </div>
-  <div class="destaque destaque--4">
-    <img src="assets/wp/multiple-users-silhouette-1.svg" alt="">
-    <h3>Turmas com acompanhamento próximo</h3>
-    <p>Experiência personalizada.</p>
-  </div>
-</div>
+</section>
 
 <div class="wood">
   <section class="s1">
-    <div class="s-box s1-row">
+    <img class="s1-cutout" src="assets/wp/168368668_10647750-1.png" alt="">
+    <div class="s-box">
       <div class="s1-left">
         <h2 class="s1-title">FORMAÇÃO VETERINÁRIA PRÁTICA QUE PREPARA PARA O MERCADO REAL</h2>
         <div class="s1-text">
@@ -266,17 +274,12 @@ p{margin:0 0 16px}
         </div>
         <div class="s1-photo"><img src="assets/wp/dsc01101-1.png" alt="Prática veterinária com ultrassom em cavalo"></div>
       </div>
-      <div class="s1-right">
-        <img src="assets/wp/168368668_10647750-1.png" alt="">
-      </div>
     </div>
   </section>
 
   <section class="s2">
-    <div class="s-box s2-row">
-      <div class="s2-left">
-        <img src="assets/wp/38708456_8602286-1.png" alt="">
-      </div>
+    <img class="s2-cutout" src="assets/wp/38708456_8602286-1.png" alt="">
+    <div class="s-box">
       <div class="s2-right">
         <div class="s2-text">
           <p>O objetivo não é apenas ensinar conteúdos, mas desenvolver habilidades que o mercado exige diariamente na pecuária e na área pet.</p>
