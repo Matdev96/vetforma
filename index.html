@@ -96,9 +96,11 @@ p{margin:0 0 16px}
    para servir via @font-face). Roboto (seção 3, parágrafo) é Google Font. ---------- */
 .s-box{max-width:1140px;margin:0 auto;padding:0 10px}
 
-.s1{min-height:810px;display:flex;align-items:center;position:relative;overflow:visible}
-.s1-cutout{position:absolute;right:0;top:clamp(30px,7vw,130px);width:clamp(200px,24vw,420px);max-width:none;z-index:1;pointer-events:none}
-.s1-left{width:71%;margin-top:170px;position:relative;z-index:2}
+.s1{min-height:810px;display:flex;align-items:center;overflow:visible}
+.s1-row{display:flex;align-items:center;width:100%}
+.s1-left{width:71%;margin-top:170px}
+.s1-right{width:29%}
+.s1-right img{width:auto;max-width:none;margin:-512px -806px 0 -370px;padding:0}
 .s1-title{font-family:'Motiva Sans','Mulish',sans-serif;font-size:37px;font-weight:400;line-height:44px;color:var(--gold);width:61%;margin:0 0 16px}
 .s1-text{width:58%}
 .s1-text p{font-family:'Motiva Sans','Mulish',sans-serif;font-size:16px;font-weight:400;color:#fff;margin:0 0 16px}
@@ -122,9 +124,10 @@ p{margin:0 0 16px}
 .s3-btn:hover{filter:brightness(1.1)}
 
 @media (max-width:767px){
-  .s1-left{width:100%;margin-top:0;text-align:center}
+  .s1-row{flex-direction:column}
+  .s1-left,.s1-right{width:100%;margin-top:0;text-align:center}
   .s1-title,.s1-text{width:100%}
-  .s1-cutout{width:clamp(140px,40vw,220px);top:-30px}
+  .s1-right img{width:60%;max-width:220px;margin:0 auto}
   .s2-right{width:100%;margin-left:0;text-align:center}
   .s2-cutout{width:clamp(160px,44vw,240px);bottom:-30px}
   .s2-text{width:100%;margin-left:0;margin-right:0}
@@ -264,8 +267,7 @@ p{margin:0 0 16px}
 
 <div class="wood">
   <section class="s1">
-    <img class="s1-cutout" src="assets/wp/168368668_10647750-1.png" alt="">
-    <div class="s-box">
+    <div class="s-box s1-row">
       <div class="s1-left">
         <h2 class="s1-title">FORMAÇÃO VETERINÁRIA PRÁTICA QUE PREPARA PARA O MERCADO REAL</h2>
         <div class="s1-text">
@@ -273,6 +275,9 @@ p{margin:0 0 16px}
           <p>Cada treinamento combina conhecimento técnico com vivência prática em fazenda escola, criando uma jornada completa de capacitação veterinária prática.</p>
         </div>
         <div class="s1-photo"><img src="assets/wp/dsc01101-1.png" alt="Prática veterinária com ultrassom em cavalo"></div>
+      </div>
+      <div class="s1-right">
+        <img src="assets/wp/168368668_10647750-1.png" alt="">
       </div>
     </div>
   </section>
