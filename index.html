@@ -1,671 +1,361 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vetforma — Formação veterinária com prática real em campo</title>
-<meta name="description" content="Cursos veterinários práticos em fazenda escola. Formação técnica com experiência real em campo.">
+<meta name="description" content="Na Vetforma, o conhecimento sai da teoria e ganha vida dentro da fazenda. Cursos práticos para quem quer segurança, técnica e experiência verdadeira na área veterinária.">
+<link rel="icon" href="assets/wp/logo-vetorizada-1.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   VETFORMA — réplica da home
-   Tokens extraídos do layout original
+   VETFORMA — clone fiel a partir do export Elementor real
+   Cores, textos e imagens extraídos de elementor-1213 (home).
+   Fonte original "Motiva Sans" é paga; substituída por Mulish.
    ============================================================ */
 :root{
-  --azul:            #0e4a61;   /* fundo principal */
-  --azul-escuro:     #0a3a4d;
-  --azul-card:       #2d6791;   /* cards de destaque (1 e 2) */
-  --azul-card-claro: #4f83aa;   /* cards de destaque (3 e 4) */
-  --azul-texto:      #114b63;   /* texto sobre branco */
-  --verde:           #1b7a4e;
-  --verde-escuro:    #146340;
-  --ouro:            #e3a32b;
-  --ouro-btn:        #e9a93a;
-  --ouro-escuro:     #d3931f;
-  --creme:           #f0ebd8;
-  --branco:          #ffffff;
-
-  --container: 1140px;
-  --radius: 4px;
+  --navy-950:#0C253C;
+  --navy-800:#002D4E;
+  --navy-btn-a:#08233B; --navy-btn-b:#185284;
+  --blue-600:#11416C; --blue-500:#276194; --blue-400:#6D9DC8; --blue-100:#C2D3E3;
+  --teal:#036349;
+  --green-btn-a:#01442F; --green-btn-b:#14AA7D;
+  --gold:#CD8E2D;
+  --white:#FFFFFF;
+  --container:1180px;
+  --radius:14px;
+  --font:'Mulish','Motiva Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
-
-*,*::before,*::after{box-sizing:border-box}
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:'Montserrat',system-ui,-apple-system,sans-serif;
-  font-size:15px;
-  line-height:1.65;
-  color:#fff;
-  background:var(--azul) url('assets/fundo-site.png') center top fixed;
-  background-size:cover;
-  overflow-x:hidden;            /* mata o scroll horizontal dos recortes */
-  -webkit-font-smoothing:antialiased;
-}
+body{margin:0;font-family:var(--font);color:#fff;background:var(--navy-950);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-button{font-family:inherit}
-
-/* textura vertical sutil do fundo */
-body::before{
-  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:repeating-linear-gradient(90deg,
-    rgba(255,255,255,.018) 0 2px,
-    rgba(0,0,0,.022) 2px 5px);
-}
-main,header,footer{position:relative;z-index:1}
-
+ul{margin:0;padding:0;list-style:none}
+h1,h2,h3{margin:0 0 16px;line-height:1.25}
+p{margin:0 0 16px}
 .container{width:100%;max-width:var(--container);margin:0 auto;padding:0 24px}
+.wood{background:var(--navy-950) url('assets/wp/background-wood-1.png') repeat;background-size:520px auto}
 
-:focus-visible{outline:3px solid var(--ouro);outline-offset:3px}
-
-/* ---------- HEADER ---------- */
-.topo{
-  background:#fff;position:sticky;top:0;z-index:60;
-  box-shadow:0 1px 6px rgba(0,0,0,.10);
-}
-.topo .container{display:flex;align-items:center;gap:24px;min-height:74px}
+/* ---------- Header ---------- */
+.topo{background:#fff;position:sticky;top:0;z-index:60;box-shadow:0 1px 6px rgba(0,0,0,.12)}
+.topo .container{display:flex;align-items:center;gap:24px;min-height:78px}
 .logo img{height:56px;width:auto}
-.logo-fallback{
-  height:56px;width:56px;border-radius:50%;
-  background:var(--azul);border:3px solid var(--ouro);
-  display:grid;place-items:center;color:#fff;font-size:9px;
-  font-weight:800;letter-spacing:.04em;
-}
-.nav{margin-left:auto;display:flex;gap:30px}
-.nav a{
-  color:var(--azul-texto);font-size:12px;font-weight:600;
-  letter-spacing:.06em;text-transform:uppercase;
-  padding:6px 0;border-bottom:2px solid transparent;transition:border-color .18s;
-}
-.nav a:hover{border-bottom-color:var(--ouro)}
-.menu-btn{
-  display:none;margin-left:auto;background:none;border:0;cursor:pointer;
-  padding:8px;color:var(--azul-texto);
-}
-.menu-btn span{display:block;width:24px;height:2px;background:currentColor;margin:5px 0}
+.nav{margin-left:auto;display:flex;gap:32px}
+.nav a{color:var(--navy-800);font-size:13px;font-weight:800;letter-spacing:.04em;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .18s,color .18s}
+.nav a:hover,.nav a.active{border-bottom-color:var(--gold);color:var(--gold)}
+.menu-btn{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px}
+.menu-btn span{display:block;width:24px;height:2px;background:var(--navy-800);margin:5px 0}
 
-/* ---------- HERO ---------- */
-.hero{
-  position:relative;background:var(--creme);
-  overflow:hidden;text-align:center;
-}
-.hero-bg{
-  position:relative;width:100%;aspect-ratio:1920/1360;overflow:hidden;
-  background:linear-gradient(160deg,#8a6a2e 0%,#3b3529 55%,#141310 100%); /* fallback */
-}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center center}
-.hero-bg::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,.30) 0%,rgba(0,0,0,.42) 45%,rgba(0,0,0,.58) 100%);
-}
-.hero .container{
-  position:absolute;inset:0;z-index:2;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:24px;
-}
-.hero h1{
-  margin:0 auto 22px;max-width:640px;
-  font-size:clamp(1.9rem,4.2vw,2.75rem);
-  font-weight:700;line-height:1.2;letter-spacing:.005em;
-  text-transform:uppercase;
-  text-shadow:0 2px 14px rgba(0,0,0,.55);
-}
-.hero p{
-  margin:0 auto 34px;max-width:520px;
-  font-size:.95rem;line-height:1.7;font-weight:400;
-  text-shadow:0 1px 8px rgba(0,0,0,.6);
-}
-.hero p strong{font-weight:700}
-.hero-botoes{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn{
-  display:inline-block;padding:13px 34px;border-radius:var(--radius);
-  font-size:.82rem;font-weight:600;letter-spacing:.02em;
-  border:0;cursor:pointer;transition:filter .18s,transform .18s;
-}
-.btn:hover{filter:brightness(1.11);transform:translateY(-1px)}
-.btn-azul{background:var(--azul-card);color:#fff}
-.btn-verde{background:var(--verde);color:#fff}
-.btn-ouro{background:var(--ouro-btn);color:#fff}
+/* ---------- Buttons ---------- */
+.btn{display:inline-block;padding:14px 34px;border-radius:999px;font-size:.85rem;font-weight:700;border:0;cursor:pointer;transition:filter .18s,transform .18s}
+.btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.btn-navy{background:linear-gradient(109deg,var(--navy-btn-a),var(--navy-btn-b));color:#fff}
+.btn-green{background:linear-gradient(130deg,var(--green-btn-a),var(--green-btn-b));color:#fff}
+.btn-gold{background:var(--gold);color:#fff}
 
-/* ---------- 4 CARDS ---------- */
-.destaques{margin-top:-130px;position:relative;z-index:5;padding-bottom:70px}
-.destaques-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.destaque{
-  background:var(--azul-card);border-radius:var(--radius);
-  padding:26px 20px 24px;text-align:center;
-  box-shadow:0 6px 22px rgba(0,0,0,.22);
-}
-.destaque:nth-child(3),.destaque:nth-child(4){background:var(--azul-card-claro)}
-.destaque svg{width:38px;height:38px;margin:0 auto 16px;display:block;fill:#fff}
-.destaque p{margin:0;font-size:.76rem;line-height:1.6}
-.destaque strong{display:block;font-weight:700;margin-bottom:5px}
+/* ---------- Hero ---------- */
+.hero{position:relative;background:#141310;overflow:hidden}
+.hero-bg{position:relative;width:100%;aspect-ratio:1920/1200;overflow:hidden}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,37,60,.15) 0%,rgba(12,37,60,.55) 60%,rgba(12,37,60,.85) 100%)}
+.hero .container{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;max-width:760px;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.hero p{max-width:600px;font-size:1rem;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:8px}
 
-/* ---------- BLOCOS DE CONTEÚDO ---------- */
-.secao{padding:70px 0;position:relative}
-.secao-sobre{padding-top:20px}
+/* ---------- Destaques ---------- */
+.destaques{display:grid;grid-template-columns:repeat(4,1fr)}
+.destaque{padding:40px 26px;text-align:center}
+.destaque img{width:52px;height:52px;margin:0 auto 18px}
+.destaque h3{font-size:1rem;font-weight:700;margin-bottom:8px}
+.destaque p{font-size:.85rem;margin:0;opacity:.95}
+.destaque--1{background:var(--blue-600)}
+.destaque--2{background:var(--blue-500)}
+.destaque--3{background:var(--blue-400);color:var(--navy-950)}
+.destaque--4{background:var(--blue-100);color:var(--navy-950)}
 
-.sobre-grid{display:grid;grid-template-columns:minmax(0,460px) 1fr;gap:40px}
-.sobre h2{
-  margin:0 0 20px;color:var(--ouro);
-  font-size:clamp(1.35rem,2.6vw,1.75rem);
-  font-weight:700;line-height:1.25;text-transform:uppercase;
-}
-.sobre p{margin:0 0 16px;font-size:.82rem;line-height:1.75;max-width:62ch}
+/* ---------- Split sections ---------- */
+.split{padding:80px 0;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.split.reverse .split-media{order:2}
+.split-text .eyebrow{color:var(--gold);font-weight:800;text-transform:uppercase;font-size:1.3rem}
+.split-media img{border-radius:var(--radius);width:100%}
+.split-media.stack{display:flex;flex-direction:column;gap:20px}
 
-/* recortes dos animais */
-.recorte{position:absolute;pointer-events:none;user-select:none;z-index:0}
-.recorte img{width:100%;height:auto}
-.recorte-cavalo{right:-40px;top:-90px;width:min(38vw,430px)}
-.recorte-cachorro{left:-90px;top:340px;width:min(34vw,380px)}
+/* ---------- Campo (verde) CTA ---------- */
+.campo-cta{padding:70px 0;text-align:center}
+.campo-cta h2{color:#fff;font-size:1.6rem}
+.campo-cta p{max-width:760px;margin-left:auto;margin-right:auto}
 
-.midia-texto{
-  display:grid;grid-template-columns:1fr 1fr;gap:44px;
-  align-items:center;margin-top:56px;position:relative;z-index:2;
-}
-.midia-texto p{margin:0 0 15px;font-size:.82rem;line-height:1.75}
-.foto{border-radius:2px;overflow:hidden;background:var(--azul-escuro);aspect-ratio:4/3}
-.foto img{width:100%;height:100%;object-fit:cover}
-.foto-alta{aspect-ratio:3/4}
+/* ---------- Gold cards ---------- */
+.gold-cards{padding:60px 0;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.gold-card{background:var(--gold);border-radius:var(--radius);overflow:hidden;text-align:center}
+.gold-card img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.gold-card-body{padding:28px 26px 34px}
+.gold-card-body h3{font-size:1.3rem}
+.gold-card-body p{font-size:.9rem}
 
-/* ---------- CARD VERDE ---------- */
-.campo{position:relative;margin:80px 0 0}
-.campo-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center}
-.campo-card{
-  background:var(--verde);border-radius:var(--radius);
-  padding:44px 42px;text-align:center;
-  box-shadow:0 8px 30px rgba(0,0,0,.25);
-  position:relative;z-index:3;
-}
-.campo-card h2{margin:0 0 18px;font-size:1.22rem;font-weight:700;line-height:1.35}
-.campo-card p{margin:0 0 14px;font-size:.79rem;line-height:1.75}
-.campo-card .btn{margin-top:12px;padding:11px 40px}
-.campo-foto{
-  position:relative;z-index:4;margin-left:-60px;
-  aspect-ratio:4/5;overflow:hidden;border-radius:2px;
-  background:var(--azul-escuro);box-shadow:0 8px 30px rgba(0,0,0,.3);
-}
-.campo-foto img{width:100%;height:100%;object-fit:cover}
+/* ---------- Mission banner ---------- */
+.mission{padding:60px 0;text-align:center}
+.mission h2{font-size:clamp(1.4rem,3vw,2rem);max-width:820px;margin:0 auto}
 
-/* ---------- 2 CARDS OURO ---------- */
-.capacitacao{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:90px}
-.cap-card{
-  background:var(--ouro);border-radius:var(--radius);overflow:hidden;
-  display:flex;flex-direction:column;box-shadow:0 6px 24px rgba(0,0,0,.2);
-}
-.cap-card .foto{aspect-ratio:16/9;border-radius:0}
-.cap-corpo{padding:24px 26px 28px;text-align:center;flex:1;display:flex;flex-direction:column}
-.cap-corpo h3{margin:0 0 12px;font-size:1.02rem;font-weight:700;line-height:1.35}
-.cap-corpo p{margin:0 0 20px;font-size:.77rem;line-height:1.7;flex:1}
-.cap-corpo .btn{align-self:center;padding:10px 34px;background:var(--azul-card)}
+/* ---------- Team ---------- */
+.team{padding:20px 0 70px}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.team-grid img{border-radius:var(--radius)}
 
-/* ---------- EQUIPE ---------- */
-.equipe{padding:100px 0 40px;text-align:center}
-.equipe h2{
-  margin:0 auto 46px;max-width:640px;
-  font-size:clamp(1.05rem,2.1vw,1.35rem);
-  font-weight:400;line-height:1.5;
-}
-.equipe h2 strong{font-weight:700}
-.equipe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-/* as imagens já trazem nome, cargo, P&B e cantos arredondados embutidos */
-.membro{margin:0}
-.membro img{width:100%;height:auto}
-
-/* ---------- CARROSSEL ---------- */
-.galeria{padding:70px 0 90px;position:relative}
-.galeria-viewport{overflow:hidden}
-.galeria-trilha{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1)}
-.galeria-item{flex:0 0 33.3333%;padding:0 9px;display:flex;align-items:center}
-/* moldura arredondada já vem embutida no PNG */
-.galeria-item .foto{aspect-ratio:auto;background:transparent;margin:0;width:100%}
-.galeria-item .foto img{height:auto}
-.seta{
-  position:absolute;top:50%;transform:translateY(-50%);
-  background:none;border:0;color:#fff;font-size:1.7rem;cursor:pointer;
-  padding:10px 14px;opacity:.75;transition:opacity .18s;line-height:1;
-}
-.seta:hover{opacity:1}
-.seta-ant{left:-4px}
-.seta-prox{right:-4px}
+/* ---------- Carousel ---------- */
+.galeria{padding:0 0 70px}
+.carousel-track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.carousel-track::-webkit-scrollbar{display:none}
+.carousel-track img{scroll-snap-align:start;border-radius:var(--radius);width:min(520px,80vw);flex:0 0 auto}
+.carousel-nav{display:flex;gap:14px;justify-content:center;margin-top:20px}
+.carousel-nav button{width:42px;height:42px;border-radius:50%;border:2px solid var(--gold);background:none;color:var(--gold);font-size:18px;cursor:pointer}
+.carousel-nav button:hover{background:var(--gold);color:#fff}
 
 /* ---------- FAQ ---------- */
-.faq{padding:40px 0 90px;text-align:center}
-.faq h2{
-  margin:0 0 40px;font-size:clamp(1.1rem,2.3vw,1.4rem);
-  font-weight:700;text-transform:uppercase;letter-spacing:.02em;
-}
-.faq-lista{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
-.faq-item{background:var(--verde);border-radius:var(--radius);overflow:hidden;text-align:left}
-.faq-btn{
-  width:100%;background:none;border:0;color:#fff;cursor:pointer;
-  padding:16px 22px;display:flex;align-items:center;justify-content:space-between;
-  gap:16px;font-size:.82rem;font-weight:600;text-align:left;
-}
-.faq-btn::after{content:"▾";font-size:.85rem;transition:transform .25s;flex-shrink:0}
+.faq{padding:20px 0 70px}
+.faq h2{text-align:center;text-transform:uppercase;font-size:1.4rem;margin-bottom:32px}
+.faq-lista{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.faq-item{background:var(--teal);border-radius:var(--radius);overflow:hidden}
+.faq-btn{width:100%;background:none;border:0;color:#fff;cursor:pointer;padding:20px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:.92rem;font-weight:700;text-align:left}
+.faq-btn::after{content:"▾";transition:transform .25s}
 .faq-btn[aria-expanded="true"]::after{transform:rotate(180deg)}
 .faq-resposta{max-height:0;overflow:hidden;transition:max-height .3s ease}
-.faq-resposta p{margin:0;padding:0 22px 20px;font-size:.79rem;line-height:1.75}
+.faq-resposta p{padding:0 26px 22px;margin:0;font-size:.88rem;opacity:.95}
 
-/* ---------- ENDEREÇO ---------- */
-.endereco{
-  background:var(--verde);text-align:center;
-  padding:15px 24px;font-size:.75rem;font-weight:500;
-  display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;
-}
-.endereco svg{width:14px;height:14px;fill:#fff;flex-shrink:0}
+/* ---------- Endereço ---------- */
+.endereco{background:var(--teal);text-align:center;padding:16px 24px;font-size:.82rem;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.endereco img{width:20px;height:20px}
 
-/* ---------- RODAPÉ ---------- */
-.rodape{background:#fff;color:var(--azul-texto);padding:44px 0}
-.rodape .container{
-  display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap;
-}
-.rodape-info h3{margin:0 0 12px;font-size:.88rem;font-weight:700;color:var(--azul-texto)}
-.rodape-info p{margin:0;font-size:.76rem;line-height:1.9}
-.rodape-marca{display:flex;flex-direction:column;align-items:center;gap:14px}
-.rodape-marca img{height:70px;width:auto}
-.sociais{display:flex;gap:10px}
-.sociais a{
-  width:30px;height:30px;border-radius:50%;background:var(--azul-card);
-  display:grid;place-items:center;transition:filter .18s;
-}
-.sociais a:hover{filter:brightness(1.2)}
-.sociais svg{width:15px;height:15px;fill:#fff}
-
-.creditos{
-  background:var(--ouro-escuro);padding:11px 24px;font-size:.66rem;font-weight:600;
-}
+/* ---------- Rodapé ---------- */
+.rodape{background:#fff;color:var(--navy-800);padding:48px 0}
+.rodape .container{display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap}
+.rodape-info h3{margin:0 0 10px;font-size:1rem}
+.rodape-info p{margin:0;font-size:.85rem;line-height:1.8}
+.rodape-marca{display:flex;flex-direction:column;align-items:center;gap:16px}
+.rodape-marca img{height:60px}
+.sociais{display:flex;gap:12px}
+.sociais a{width:38px;height:38px;border-radius:50%;background:var(--navy-800);display:flex;align-items:center;justify-content:center;padding:9px}
+.sociais img{width:100%;height:100%;filter:brightness(0) invert(1)}
+.creditos{background:var(--gold);padding:14px 24px;font-size:.75rem;font-weight:600}
 .creditos .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
-/* ---------- RESPONSIVO ---------- */
+/* ---------- Responsivo ---------- */
 @media (max-width:960px){
-  .destaques-grid{grid-template-columns:repeat(2,1fr)}
-  .sobre-grid{grid-template-columns:1fr}
-  .equipe-grid{grid-template-columns:repeat(2,1fr)}
-  .galeria-item{flex:0 0 50%}
-  .campo-foto{margin-left:0;margin-top:-30px}
-  .recorte-cavalo{width:46vw;opacity:.5;top:-40px}
-  .recorte-cachorro{width:44vw;opacity:.5}
+  .destaques{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr}
+  .split.reverse .split-media{order:-1}
+  .gold-cards{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:720px){
-  .nav{
-    display:none;position:absolute;top:74px;left:0;right:0;
-    background:#fff;flex-direction:column;gap:0;padding:8px 24px 18px;
-    box-shadow:0 8px 18px rgba(0,0,0,.12);
-  }
+  .nav{display:none;position:absolute;top:78px;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:8px 24px 18px;box-shadow:0 8px 18px rgba(0,0,0,.12)}
   .nav.aberto{display:flex}
-  .nav a{padding:12px 0;border-bottom:1px solid #e8e8e8}
+  .nav a{padding:12px 0;border-bottom:1px solid #eee}
   .menu-btn{display:block}
-  .hero .container{padding:16px}
-  .destaques{margin-top:-110px}
-  .destaques-grid{grid-template-columns:1fr;gap:14px}
-  .midia-texto,.campo-grid,.capacitacao{grid-template-columns:1fr;gap:26px}
-  .campo-card{padding:34px 26px}
-  .galeria-item{flex:0 0 100%}
-  .recorte{display:none}
+  .destaques{grid-template-columns:1fr}
   .rodape .container{flex-direction:column;text-align:center}
   .creditos .container{flex-direction:column;text-align:center;gap:6px}
-}
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-  html{scroll-behavior:auto}
 }
 </style>
 </head>
 <body>
 
-<!-- ===================== HEADER ===================== -->
 <header class="topo">
   <div class="container">
-    <a class="logo" href="/" aria-label="Vetforma — página inicial">
-      <img src="assets/logo.png" alt="Vetforma"
-           onerror="this.outerHTML='&lt;div class=\'logo-fallback\'&gt;VET&lt;/div&gt;'">
-    </a>
-    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="navPrincipal">
-      <span></span><span></span><span></span>
-    </button>
+    <a class="logo" href="index.html"><img src="assets/wp/logo-vetorizada-1.png" alt="Vetforma"></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="navPrincipal"><span></span><span></span><span></span></button>
     <nav class="nav" id="navPrincipal">
-      <a href="#home">Home</a>
-      <a href="#cursos">Cursos</a>
-      <a href="#sobre">Sobre nós</a>
-      <a href="#contato">Contato</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="sobre-nos.html">Sobre nós</a>
+      <a href="contato.html">Contato</a>
     </nav>
   </div>
 </header>
 
-<main>
-
-<!-- ===================== HERO ===================== -->
-<section class="hero" id="home">
-  <div class="hero-bg">
-    <img src="assets/hero-cavalos.png" alt="" role="presentation" onerror="this.style.display='none'">
-  </div>
+<section class="hero">
+  <div class="hero-bg"><img src="assets/wp/group-1957.png" alt="Formação veterinária prática em campo"></div>
   <div class="container">
     <h1>Formação veterinária com prática real em campo.</h1>
-    <p>Na Vetforma, o conhecimento sai da teoria e ganha vida dentro da fazenda.
-       Cursos práticos para quem quer <strong>segurança, técnica e experiência</strong>
-       verdadeira na área veterinária.</p>
-    <div class="hero-botoes">
-      <a class="btn btn-azul" href="#cursos">Ver cursos</a>
-      <a class="btn btn-verde" href="#fazenda">Conheça a fazenda escola</a>
+    <p>Na Vetforma, o conhecimento sai da teoria e ganha vida dentro da fazenda. Cursos práticos para quem quer <strong>segurança, técnica e experiência</strong> verdadeira na área veterinária.</p>
+    <div class="hero-actions">
+      <a href="cursos.html" class="btn btn-navy">Ver cursos</a>
+      <a href="sobre-nos.html" class="btn btn-green">Conheça a fazenda escola</a>
     </div>
   </div>
 </section>
 
-<!-- ===================== 4 DESTAQUES ===================== -->
-<section class="destaques">
-  <div class="container">
-    <div class="destaques-grid">
-
-      <article class="destaque">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 2 8v13h7v-6h6v6h7V8L12 2Zm0 2.3 8 4.8V19h-3v-6H7v6H4V9.1l8-4.8Z"/></svg>
-        <p><strong>Aprendizado prático em fazenda escola</strong>
-           Contato direto com animais e rotina real de trabalho.</p>
-      </article>
-
-      <article class="destaque">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm11 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM9.8 6.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Zm4.4 0a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4ZM12 12c-3 0-5.5 2.6-5.5 5.3 0 2 1.5 3.2 3.4 3.2 1.1 0 1.6-.5 2.1-.5s1 .5 2.1.5c1.9 0 3.4-1.2 3.4-3.2C17.5 14.6 15 12 12 12Z"/></svg>
-        <p><strong>Profissionais que vivem o que ensinam</strong>
-           Cursos ministrados por veterinários atuantes.</p>
-      </article>
-
-      <article class="destaque">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 3 5v6c0 5.3 3.8 10.2 9 11.5 5.2-1.3 9-6.2 9-11.5V5l-9-4Zm-1.2 15-3.5-3.5 1.5-1.5 2 2 5-5 1.5 1.5-6.5 6.5Z"/></svg>
-        <p><strong>Ensino técnico com foco em segurança profissional.</strong>
-           Mais confiança para atuar no campo.</p>
-      </article>
-
-      <article class="destaque">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 2c-2.7 0-8 1.3-8 4v3h16v-3c0-2.7-5.3-4-8-4Zm8 0c-.3 0-.7 0-1.1.1 1.3 1 2.1 2.3 2.1 3.9v3h6v-3c0-2.7-5.3-4-7-4Z"/></svg>
-        <p><strong>Turmas com acompanhamento próximo</strong>
-           Experiência personalizada.</p>
-      </article>
-
-    </div>
+<div class="destaques">
+  <div class="destaque destaque--1">
+    <img src="assets/wp/farm-house-1.svg" alt="">
+    <h3>Aprendizado prático em fazenda escola</h3>
+    <p>Contato direto com animais e rotina real de trabalho.</p>
   </div>
-</section>
-
-<!-- ===================== SOBRE ===================== -->
-<section class="secao secao-sobre sobre" id="sobre">
-
-  <div class="recorte recorte-cavalo" aria-hidden="true">
-    <img src="assets/recorte-cavalo.png" alt="" onerror="this.closest('.recorte').style.display='none'">
+  <div class="destaque destaque--2">
+    <img src="assets/wp/vet-1.svg" alt="">
+    <h3>Profissionais que vivem o que ensinam</h3>
+    <p>Cursos ministrados por veterinários atuantes.</p>
   </div>
-  <div class="recorte recorte-cachorro" aria-hidden="true">
-    <img src="assets/recorte-cachorro.png" alt="" onerror="this.closest('.recorte').style.display='none'">
+  <div class="destaque destaque--3">
+    <img src="assets/wp/protection-1-1.svg" alt="">
+    <h3>Ensino técnico com foco em segurança profissional</h3>
+    <p>Mais confiança para atuar no campo.</p>
   </div>
-
-  <div class="container">
-    <div class="sobre-grid">
-      <div>
-        <h2>Formação veterinária prática que prepara para o mercado real</h2>
-        <p>Na Vetforma, acreditamos que a formação veterinária precisa ir além da sala de aula.
-           Nossos cursos veterinários práticos são desenvolvidos para transformar teoria em
-           experiência real, preparando estudantes e profissionais para atuar com mais
-           segurança, técnica e confiança no campo.</p>
-        <p>Cada treinamento combina conhecimento técnico com vivência prática em fazenda
-           escola, criando uma jornada completa de capacitação veterinária prática.</p>
-      </div>
-    </div>
-
-    <div class="midia-texto">
-      <figure class="foto" style="margin:0">
-        <img src="assets/pratica-01.jpg" alt="Alunos em atendimento prático com bovino">
-      </figure>
-      <div>
-        <p>O objetivo não é apenas ensinar conteúdos, mas desenvolver habilidades que o
-           mercado exige diariamente na pecuária e na área pet.</p>
-        <p>Nossa metodologia valoriza o aprendizado ativo, onde o aluno participa, executa
-           e aprende diretamente com profissionais que vivem a rotina da medicina veterinária.</p>
-      </div>
-    </div>
-
-    <div class="midia-texto">
-      <div></div>
-      <figure class="foto" style="margin:0">
-        <img src="assets/pratica-02.jpg" alt="Aluna realizando procedimento em equino">
-      </figure>
-    </div>
+  <div class="destaque destaque--4">
+    <img src="assets/wp/multiple-users-silhouette-1.svg" alt="">
+    <h3>Turmas com acompanhamento próximo</h3>
+    <p>Experiência personalizada.</p>
   </div>
-</section>
-
-<!-- ===================== FAZENDA ESCOLA ===================== -->
-<section class="campo" id="fazenda">
-  <div class="container">
-    <div class="campo-grid">
-      <div class="campo-card">
-        <h2>Ensino veterinário prático<br>em ambiente de campo</h2>
-        <p>Um dos grandes diferenciais da Vetforma é a experiência em fazenda escola
-           veterinária, onde o aprendizado acontece em contato direto com diferentes
-           espécies e rotinas reais de manejo.</p>
-        <p>Esse ambiente proporciona uma formação veterinária prática mais completa,
-           permitindo que o aluno desenvolva habilidades técnicas em situações reais,
-           com acompanhamento profissional e estrutura preparada para ensino.</p>
-        <p>Ao vivenciar o clima do campo e os desafios da profissão, o aluno amplia sua
-           visão técnica e se prepara para atuar com excelência em diferentes áreas
-           da medicina veterinária.</p>
-        <a class="btn btn-ouro" href="#contato">Saiba mais</a>
-      </div>
-      <figure class="campo-foto" style="margin:0">
-        <img src="assets/fazenda-escola.jpg" alt="Instalações da fazenda escola Vetforma">
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CAPACITAÇÃO ===================== -->
-<section class="secao" id="cursos">
-  <div class="container">
-    <div class="capacitacao">
-
-      <article class="cap-card">
-        <figure class="foto" style="margin:0">
-          <img src="assets/capacitacao-presencial.jpg" alt="Turma de alunos com certificados">
-        </figure>
-        <div class="cap-corpo">
-          <h3>Capacitação veterinária que<br>transforma teoria em prática</h3>
-          <p>Na Vetforma, o aprendizado acontece em ambiente real de fazenda escola,
-             desenvolvendo técnica, prática e segurança profissional por meio de
-             formações veterinárias focadas na evolução de carreira.</p>
-          <a class="btn" href="#contato">Saiba mais</a>
-        </div>
-      </article>
-
-      <article class="cap-card">
-        <figure class="foto" style="margin:0">
-          <img src="assets/capacitacao-online.jpg" alt="Aula online sendo assistida em notebook">
-        </figure>
-        <div class="cap-corpo">
-          <h3>Capacitação veterinária online</h3>
-          <p>Os cursos online da Vetforma oferecem conteúdo técnico claro e acessível,
-             conectando teoria e prática para fortalecer habilidades profissionais e
-             apoiar sua evolução na medicina veterinária.</p>
-          <a class="btn" href="#contato">Saiba mais</a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===================== EQUIPE ===================== -->
-<section class="equipe">
-  <div class="container">
-    <h2>Formar profissionais mais <strong>seguros, preparados e confiantes</strong>
-        para o mercado veterinário.</h2>
-    <div class="equipe-grid">
-
-      <figure class="membro">
-        <img src="assets/equipe-01.png" alt="Carolina Martins Carreta — médica veterinária">
-      </figure>
-
-      <figure class="membro">
-        <img src="assets/equipe-02.png" alt="Guilherme de Jesus Leite — médico veterinário">
-      </figure>
-
-      <figure class="membro">
-        <img src="assets/equipe-03.png" alt="Taisa Andressa Ferreira — médica veterinária">
-      </figure>
-
-      <figure class="membro">
-        <img src="assets/equipe-04.png" alt="Danilo Maciel Duarte — médico veterinário">
-      </figure>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===================== GALERIA ===================== -->
-<section class="galeria">
-  <div class="container" style="position:relative">
-    <button class="seta seta-ant" id="galAnt" aria-label="Imagem anterior">&#10094;</button>
-    <div class="galeria-viewport">
-      <div class="galeria-trilha" id="galTrilha">
-        <div class="galeria-item"><figure class="foto"><img src="assets/galeria-01.png" alt="Turma da Vetforma com os certificados"></figure></div>
-        <div class="galeria-item"><figure class="foto"><img src="assets/galeria-02.png" alt="Aula teórica sobre vias de administração"></figure></div>
-        <div class="galeria-item"><figure class="foto"><img src="assets/galeria-03.png" alt="Prática de ultrassonografia em equino"></figure></div>
-      </div>
-    </div>
-    <button class="seta seta-prox" id="galProx" aria-label="Próxima imagem">&#10095;</button>
-  </div>
-</section>
-
-<!-- ===================== FAQ ===================== -->
-<section class="faq">
-  <div class="container">
-    <h2>Perguntas frequentes</h2>
-    <div class="faq-lista">
-
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false">O ensino é realmente prático?</button>
-        <div class="faq-resposta">
-          <p>Sim. As atividades acontecem em fazenda escola, com contato direto com os
-             animais e acompanhamento de veterinários atuantes durante toda a formação.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false">Os cursos têm certificado?</button>
-        <div class="faq-resposta">
-          <p>Sim. Todos os participantes recebem certificado de conclusão ao final do curso.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false">Qual o investimento?</button>
-        <div class="faq-resposta">
-          <p>O valor varia conforme o curso e a carga horária. Entre em contato pelo
-             WhatsApp para receber as condições da turma atual.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- ===================== ENDEREÇO ===================== -->
-<div class="endereco">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
-  <span>Embryoplus &ndash; Rodovia Mor 020, Chapadão, Monte Mor &ndash; SP, 13190-000</span>
 </div>
 
-<!-- ===================== RODAPÉ ===================== -->
-<footer class="rodape" id="contato">
+<div class="wood">
+  <div class="container split">
+    <div class="split-text">
+      <span class="eyebrow">Formação veterinária prática que prepara para o mercado real</span>
+      <p style="margin-top:20px">Na Vetforma, acreditamos que a formação veterinária precisa ir além da sala de aula. Nossos cursos veterinários práticos são desenvolvidos para transformar teoria em experiência real, preparando estudantes e profissionais para atuar com mais segurança, técnica e confiança no campo.</p>
+      <p>Cada treinamento combina conhecimento técnico com vivência prática em fazenda escola, criando uma jornada completa de capacitação veterinária prática.</p>
+    </div>
+    <div class="split-media stack">
+      <img src="assets/wp/dsc01101-1.png" alt="Prática veterinária em fazenda escola">
+      <img src="assets/wp/168368668_10647750-1.png" alt="Cão em atendimento veterinário">
+    </div>
+  </div>
+
+  <div class="container split reverse">
+    <div class="split-media">
+      <img src="assets/wp/38708456_8602286-1.png" alt="Aluno em treinamento prático">
+    </div>
+    <div class="split-text">
+      <p>O objetivo não é apenas ensinar conteúdos, mas desenvolver habilidades que o mercado exige diariamente na pecuária e na área pet.</p>
+      <p>Nossa metodologia valoriza o aprendizado ativo, onde o aluno participa, executa e aprende diretamente com profissionais que vivem a rotina da medicina veterinária.</p>
+      <img src="assets/wp/dsc01095-1.png" alt="Prática veterinária" style="border-radius:14px;margin-top:12px">
+    </div>
+  </div>
+
+  <div class="container campo-cta">
+    <h2>Ensino veterinário prático em ambiente de campo</h2>
+    <p>Um dos grandes diferenciais da Vetforma é a experiência em fazenda escola veterinária, onde o aprendizado acontece em contato direto com diferentes espécies e rotinas reais de manejo. Esse ambiente proporciona uma formação veterinária prática mais completa, permitindo que o aluno desenvolva habilidades técnicas em situações reais, com acompanhamento profissional e estrutura preparada para ensino. Ao vivenciar o clima do campo e os desafios da profissão, o aluno amplia sua visão técnica e se prepara para atuar com excelência em diferentes áreas da medicina veterinária.</p>
+    <a href="https://wa.me/5519998724537?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20cursos%20da%20Vetforma" class="btn btn-gold" target="_blank" rel="noopener">Saiba mais</a>
+  </div>
+
+  <div class="container gold-cards">
+    <div class="gold-card">
+      <img src="assets/wp/dsc01124-1-scaled.jpg" alt="Capacitação veterinária presencial">
+      <div class="gold-card-body">
+        <h3>Capacitação veterinária que transforma teoria em prática</h3>
+        <p>Na Vetforma, o aprendizado acontece em ambiente real de fazenda escola, desenvolvendo técnica, prática e segurança profissional por meio de formações veterinárias focadas na evolução de carreira.</p>
+        <a href="https://wa.me/5519998724537?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20cursos%20da%20Vetforma" class="btn btn-navy" target="_blank" rel="noopener">Saiba mais</a>
+      </div>
+    </div>
+    <div class="gold-card">
+      <img src="assets/wp/aula-online-scaled.png" alt="Capacitação veterinária online">
+      <div class="gold-card-body">
+        <h3>Capacitação veterinária online</h3>
+        <p>Os cursos online da Vetforma oferecem conteúdo técnico claro e acessível, conectando teoria e prática para fortalecer habilidades profissionais e apoiar sua evolução na medicina veterinária.</p>
+        <a href="https://wa.me/5519998724537?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20cursos%20da%20Vetforma" class="btn btn-navy" target="_blank" rel="noopener">Saiba mais</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mission">
+    <h2>Formar profissionais mais <strong>SEGUROS, PREPARADOS</strong> E <strong>CONFIANTES</strong> para o mercado veterinário.</h2>
+  </div>
+
+  <div class="container team">
+    <div class="team-grid">
+      <img src="assets/wp/carol.png" alt="Instrutora Vetforma">
+      <img src="assets/wp/gui.png" alt="Instrutor Vetforma">
+      <img src="assets/wp/taisa.png" alt="Instrutora Vetforma">
+      <img src="assets/wp/danilo.png" alt="Instrutor Vetforma">
+    </div>
+  </div>
+
+  <div class="container galeria">
+    <div class="carousel-track">
+      <img src="assets/wp/dsc01047-1.png" alt="Fazenda escola Vetforma 1">
+      <img src="assets/wp/dsc01069-1.png" alt="Fazenda escola Vetforma 2">
+      <img src="assets/wp/dsc01124-1.png" alt="Fazenda escola Vetforma 3">
+    </div>
+    <div class="carousel-nav">
+      <button class="carousel-prev" aria-label="Anterior">&#8592;</button>
+      <button class="carousel-next" aria-label="Próximo">&#8594;</button>
+    </div>
+  </div>
+
+  <div class="container faq">
+    <h2>Perguntas frequentes</h2>
+    <div class="faq-lista">
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">O ensino é realmente prático?</button>
+        <div class="faq-resposta"><p>Sim. As atividades são realizadas em ambiente de campo com acompanhamento profissional.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">Os cursos têm certificado?</button>
+        <div class="faq-resposta"><p>Sim.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">Qual o investimento?</button>
+        <div class="faq-resposta"><p>Os cursos variam entre R$500 e R$2.500.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="endereco">
+  <img src="assets/wp/group-1979.svg" alt="">
+  <span>Embryoplus - Rodovia Mor 020, Chapadão, Monte Mor - SP, 13190-000</span>
+</div>
+
+<footer class="rodape">
   <div class="container">
     <div class="rodape-info">
       <h3>Formação prática real</h3>
       <p>Contatos:<br>
-         <a href="mailto:vetforma.cursos@gmail.com">vetforma.cursos@gmail.com</a><br>
-         <a href="tel:+5519998724537">(19) 99872-4537</a></p>
+      <a href="mailto:vetforma.cursos@gmail.com">vetforma.cursos@gmail.com</a><br>
+      <a href="tel:+5519997300925">(19) 99730-0925</a></p>
     </div>
     <div class="rodape-marca">
-      <img src="assets/logo.png" alt="Vetforma" onerror="this.style.display='none'">
+      <img src="assets/wp/logo-vetorizada-1.png" alt="Vetforma">
       <div class="sociais">
-        <a href="https://wa.me/5519998724537" aria-label="WhatsApp" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2 0 .4-.1.5l-.3.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.8 1.2 2.1 1.3.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.1.1.6-.1 1.2Z"/></svg>
-        </a>
-        <a href="https://instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 5.8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0 6.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2Zm5.1-6.8a.94.94 0 1 1-1.9 0 .94.94 0 0 1 1.9 0Z"/></svg>
-        </a>
-        <a href="https://facebook.com/" aria-label="Facebook" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.45-4 4.1v2.3H7.6V13h2.7v8h3.2Z"/></svg>
-        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5519997300925&text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+cursos+da+Vetforma&type=phone_number&app_absent=0" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="assets/wp/zap.svg" alt=""></a>
+        <a href="https://www.instagram.com/vetformacursos/" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/wp/insta-1.svg" alt=""></a>
+        <a href="https://www.facebook.com/vetformacursos?locale=pt_BR" target="_blank" rel="noopener" aria-label="Facebook"><img src="assets/wp/fb-1.svg" alt=""></a>
       </div>
     </div>
   </div>
 </footer>
-
 <div class="creditos">
   <div class="container">
-    <span>Vetforma &copy; 2026 &ndash; Todos os direitos reservados</span>
+    <span>Vetforma © 2026 - Todos os direitos reservados</span>
     <span>Desenvolvido por Tráfego e Mídias</span>
   </div>
 </div>
 
 <script>
-/* menu mobile */
 (function(){
-  var btn = document.getElementById('menuBtn');
-  var nav = document.getElementById('navPrincipal');
-  btn.addEventListener('click', function(){
-    var aberto = nav.classList.toggle('aberto');
-    btn.setAttribute('aria-expanded', aberto);
-  });
-  nav.addEventListener('click', function(e){
-    if(e.target.tagName === 'A'){
-      nav.classList.remove('aberto');
-      btn.setAttribute('aria-expanded', false);
-    }
-  });
+  var btn=document.getElementById('menuBtn'), nav=document.getElementById('navPrincipal');
+  btn.addEventListener('click',function(){ var a=nav.classList.toggle('aberto'); btn.setAttribute('aria-expanded',a); });
+  nav.addEventListener('click',function(e){ if(e.target.tagName==='A'){ nav.classList.remove('aberto'); btn.setAttribute('aria-expanded',false); } });
 })();
-
-/* acordeão do FAQ */
 document.querySelectorAll('.faq-btn').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    var painel = btn.nextElementSibling;
-    var aberto  = btn.getAttribute('aria-expanded') === 'true';
-
-    document.querySelectorAll('.faq-btn').forEach(function(outro){
-      outro.setAttribute('aria-expanded','false');
-      outro.nextElementSibling.style.maxHeight = null;
-    });
-
-    if(!aberto){
-      btn.setAttribute('aria-expanded','true');
-      painel.style.maxHeight = painel.scrollHeight + 'px';
-    }
+  btn.addEventListener('click',function(){
+    var painel=btn.nextElementSibling, aberto=btn.getAttribute('aria-expanded')==='true';
+    document.querySelectorAll('.faq-btn').forEach(function(o){ o.setAttribute('aria-expanded','false'); o.nextElementSibling.style.maxHeight=null; });
+    if(!aberto){ btn.setAttribute('aria-expanded','true'); painel.style.maxHeight=painel.scrollHeight+'px'; }
   });
 });
-
-/* carrossel da galeria */
 (function(){
-  var trilha = document.getElementById('galTrilha');
-  if(!trilha) return;
-  var itens   = trilha.children.length;
-  var indice  = 0;
-
-  function porTela(){
-    if(window.innerWidth <= 720) return 1;
-    if(window.innerWidth <= 960) return 2;
-    return 3;
-  }
-  function mover(){
-    var visiveis = porTela();
-    var max = Math.max(0, itens - visiveis);
-    if(indice > max) indice = max;
-    if(indice < 0)   indice = 0;
-    trilha.style.transform = 'translateX(-' + (indice * (100 / visiveis)) + '%)';
-  }
-  document.getElementById('galAnt').addEventListener('click', function(){ indice--; mover(); });
-  document.getElementById('galProx').addEventListener('click', function(){ indice++; mover(); });
-  window.addEventListener('resize', mover);
-  mover();
+  var track=document.querySelector('.carousel-track');
+  if(!track) return;
+  var prev=document.querySelector('.carousel-prev'), next=document.querySelector('.carousel-next');
+  function step(){ var img=track.querySelector('img'); return img? img.getBoundingClientRect().width+24 : 300; }
+  prev.addEventListener('click',function(){ track.scrollBy({left:-step(),behavior:'smooth'}); });
+  next.addEventListener('click',function(){ track.scrollBy({left:step(),behavior:'smooth'}); });
 })();
 </script>
-
 </body>
 </html>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sobre Nós | Vetforma</title>
+<meta name="description" content="A Vetforma nasceu da união de profissionais veterinários. Nosso propósito é formar profissionais mais seguros, preparados e confiantes para o mercado veterinário.">
+<link rel="icon" href="assets/wp/logo-vetorizada-1.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-800:#002D4E; --gold:#CD8E2D;
+  --green-1:#00442B; --green-2:#00422A;
+  --container:1180px; --radius:14px;
+  --font:'Mulish','Motiva Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);color:#fff;background:var(--green-2);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0 0 16px;line-height:1.25}
+p{margin:0 0 16px}
+.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 24px}
+
+.topo{background:#fff;position:sticky;top:0;z-index:60;box-shadow:0 1px 6px rgba(0,0,0,.12)}
+.topo .container{display:flex;align-items:center;gap:24px;min-height:78px}
+.logo img{height:56px;width:auto}
+.nav{margin-left:auto;display:flex;gap:32px}
+.nav a{color:var(--navy-800);font-size:13px;font-weight:800;letter-spacing:.04em;padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover,.nav a.active{border-bottom-color:var(--gold);color:var(--gold)}
+.menu-btn{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px}
+.menu-btn span{display:block;width:24px;height:2px;background:var(--navy-800);margin:5px 0}
+
+.btn{display:inline-block;padding:14px 34px;border-radius:999px;font-size:.85rem;font-weight:700;border:0;cursor:pointer}
+.btn:hover{filter:brightness(1.12)}
+.btn-gold{background:var(--gold);color:#fff}
+
+.hero{background:#02291B url('assets/wp/cavaloo-22.png') center top/cover no-repeat;text-align:center;padding:100px 0 60px}
+.hero h1{font-size:clamp(1.5rem,3vw,2.1rem);max-width:820px;margin:0 auto 28px}
+
+.bloco-1{background:var(--green-1) url('assets/wp/group-2023-1.png') center top/cover no-repeat;padding:340px 0 70px}
+.bloco-1 .container{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.bloco-1 p{font-size:.92rem}
+.bloco-1 img{border-radius:var(--radius)}
+
+.diferenciais{background:var(--green-1) url('assets/wp/group-2023.png') center top/cover no-repeat;padding:60px 0 80px}
+.diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.diff-card{background:var(--gold);border-radius:var(--radius);padding:30px 22px;text-align:center}
+.diff-card img{width:46px;height:46px;margin:0 auto 16px}
+.diff-card h3{font-size:.95rem;margin:0}
+
+.fundadores{background:var(--green-2) url('assets/wp/medicoaa-2.png') center top/cover no-repeat;padding:280px 0 60px;text-align:center}
+.fundadores img.strip{max-width:400px;margin:0 auto 24px}
+.fundadores p{max-width:680px;margin:0 auto;font-size:.92rem}
+
+.infra{background:var(--green-2);padding:60px 0}
+.infra h2{text-align:center;font-size:1.5rem}
+.infra p{max-width:820px;margin:0 auto 14px;text-align:center;font-size:.9rem}
+
+.galeria{background:var(--green-2);padding:20px 0 70px}
+.galeria-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.galeria-grid img{border-radius:10px;aspect-ratio:1/1;object-fit:cover}
+
+.endereco{background:var(--navy-800);text-align:center;padding:16px 24px;font-size:.82rem;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.endereco img{width:20px;height:20px}
+.rodape{background:#fff;color:var(--navy-800);padding:48px 0}
+.rodape .container{display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap}
+.rodape-info h3{margin:0 0 10px;font-size:1rem}
+.rodape-info p{margin:0;font-size:.85rem;line-height:1.8}
+.rodape-marca{display:flex;flex-direction:column;align-items:center;gap:16px}
+.rodape-marca img{height:60px}
+.sociais{display:flex;gap:12px}
+.sociais a{width:38px;height:38px;border-radius:50%;background:var(--navy-800);display:flex;align-items:center;justify-content:center;padding:9px}
+.sociais img{width:100%;height:100%;filter:brightness(0) invert(1)}
+.creditos{background:var(--gold);padding:14px 24px;font-size:.75rem;font-weight:600}
+.creditos .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:960px){
+  .bloco-1 .container{grid-template-columns:1fr}
+  .diff-grid{grid-template-columns:repeat(2,1fr)}
+  .galeria-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:720px){
+  .nav{display:none;position:absolute;top:78px;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:8px 24px 18px;box-shadow:0 8px 18px rgba(0,0,0,.12)}
+  .nav.aberto{display:flex}
+  .nav a{padding:12px 0;border-bottom:1px solid #eee}
+  .menu-btn{display:block}
+  .bloco-1{padding-top:220px}
+  .fundadores{padding-top:200px}
+  .diff-grid{grid-template-columns:1fr}
+  .galeria-grid{grid-template-columns:repeat(2,1fr)}
+  .rodape .container{flex-direction:column;text-align:center}
+  .creditos .container{flex-direction:column;text-align:center;gap:6px}
+}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="container">
+    <a class="logo" href="index.html"><img src="assets/wp/logo-vetorizada-1.png" alt="Vetforma"></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="navPrincipal"><span></span><span></span><span></span></button>
+    <nav class="nav" id="navPrincipal">
+      <a href="index.html">Home</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="sobre-nos.html" class="active">Sobre nós</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Nosso propósito é formar profissionais mais seguros, preparados e confiantes para o mercado veterinário.</h1>
+    <a href="https://wa.me/5519997300925?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20cursos%20da%20Vetforma" class="btn btn-gold" target="_blank" rel="noopener">Saiba mais</a>
+  </div>
+</section>
+
+<section class="bloco-1">
+  <div class="container">
+    <div>
+      <p>A fazenda escola Vetforma é o espaço onde o aprendizado ganha vida. Aqui, os alunos têm acesso a diferentes espécies, estruturas reais de manejo e situações práticas que simulam o dia a dia profissional. Esse ambiente permite desenvolver habilidades técnicas, tomada de decisão e segurança na atuação veterinária.</p>
+      <p>Nascemos da união de profissionais veterinários que entendem os desafios da atuação prática e a necessidade de um ensino mais próximo da realidade do campo. Aqui, os alunos aprendem ao lado de profissionais experientes, em um ambiente seguro e supervisionado, desenvolvendo habilidades que fortalecem a confiança para atuar no mercado.</p>
+      <p>Mais do que cursos, criamos oportunidades para ampliar conhecimento, networking e crescimento profissional.</p>
+    </div>
+    <div><img src="assets/wp/animais.png" alt="Animais da fazenda escola Vetforma"></div>
+  </div>
+</section>
+
+<section class="diferenciais">
+  <div class="container diff-grid">
+    <div class="diff-card"><img src="assets/wp/cava.svg" alt=""><h3>Contato direto com animais</h3></div>
+    <div class="diff-card"><img src="assets/wp/amb.svg" alt=""><h3>Ambiente controlado para aprendizado</h3></div>
+    <div class="diff-card"><img src="assets/wp/exp.svg" alt=""><h3>Experiência prática supervisionada</h3></div>
+    <div class="diff-card"><img src="assets/wp/trei.svg" alt=""><h3>Treinamento voltado ao mercado real</h3></div>
+  </div>
+</section>
+
+<section class="fundadores">
+  <div class="container">
+    <h2>Veterinários formando veterinários.</h2>
+    <img class="strip" src="assets/wp/rectangle-2307.png" alt="">
+    <p>A Vetforma foi criada por quatro profissionais veterinários com um propósito em comum: entregar formação prática que realmente prepare o aluno para atuar com segurança. Acreditamos que o ensino veterinário precisa ir além da teoria. Por isso, desenvolvemos experiências que aproximam o aluno da realidade do campo, com orientação técnica e acompanhamento próximo.</p>
+    <img src="assets/wp/medicoaa-1-e1776274551220.png" alt="Equipe de veterinários fundadores da Vetforma" style="max-width:640px;margin:32px auto 0">
+  </div>
+</section>
+
+<section class="infra">
+  <div class="container">
+    <h2>Infraestrutura completa</h2>
+    <p>Um dos grandes diferenciais da Vetforma é a experiência em fazenda escola veterinária, onde o aprendizado acontece em contato direto com diferentes espécies e rotinas reais de manejo. Esse ambiente proporciona uma formação veterinária prática mais completa, permitindo que o aluno desenvolva habilidades técnicas em situações reais, com acompanhamento profissional e estrutura preparada para ensino. Ao vivenciar o clima do campo e os desafios da profissão, o aluno amplia sua visão técnica e se prepara para atuar com excelência em diferentes áreas da medicina veterinária.</p>
+  </div>
+</section>
+
+<section class="galeria">
+  <div class="container galeria-grid">
+    <img src="assets/wp/foto-4.png" alt="Infraestrutura Vetforma"><img src="assets/wp/foto-2.png" alt="Infraestrutura Vetforma">
+    <img src="assets/wp/foto-3.png" alt="Infraestrutura Vetforma"><img src="assets/wp/foto-1.png" alt="Infraestrutura Vetforma">
+    <img src="assets/wp/foto-19.png" alt="Infraestrutura Vetforma"><img src="assets/wp/foto-18.png" alt="Infraestrutura Vetforma">
+    <img src="assets/wp/foto-17.png" alt="Infraestrutura Vetforma"><img src="assets/wp/foto-16.png" alt="Infraestrutura Vetforma">
+    <img src="assets/wp/foto-15.png" alt="Infraestrutura Vetforma"><img src="assets/wp/foto-14.png" alt="Infraestrutura Vetforma">
+    <img src="assets/wp/foto-13.png" alt="Infraestrutura Vetforma"><img src="assets/wp/foto-12.png" alt="Infraestrutura Vetforma">
+    <img src="assets/wp/foto-11.png" alt="Infraestrutura Vetforma"><img src="assets/wp/foto-10.png" alt="Infraestrutura Vetforma">
+    <img src="assets/wp/foto-9.png" alt="Infraestrutura Vetforma"><img src="assets/wp/foto-8.png" alt="Infraestrutura Vetforma">
+    <img src="assets/wp/foto-7.png" alt="Infraestrutura Vetforma"><img src="assets/wp/foto-6.png" alt="Infraestrutura Vetforma">
+    <img src="assets/wp/foto-5.png" alt="Infraestrutura Vetforma">
+  </div>
+</section>
+
+<div class="endereco">
+  <img src="assets/wp/group-1979.svg" alt="">
+  <span>Embryoplus - Rodovia Mor 020, Chapadão, Monte Mor - SP, 13190-000</span>
+</div>
+
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape-info">
+      <h3>Formação prática real</h3>
+      <p>Contatos:<br>
+      <a href="mailto:vetforma.cursos@gmail.com">vetforma.cursos@gmail.com</a><br>
+      <a href="tel:+5519997300925">(19) 99730-0925</a></p>
+    </div>
+    <div class="rodape-marca">
+      <img src="assets/wp/logo-vetorizada-1.png" alt="Vetforma">
+      <div class="sociais">
+        <a href="https://api.whatsapp.com/send/?phone=5519997300925&text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+cursos+da+Vetforma&type=phone_number&app_absent=0" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="assets/wp/zap.svg" alt=""></a>
+        <a href="https://www.instagram.com/vetformacursos/" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/wp/insta-1.svg" alt=""></a>
+        <a href="https://www.facebook.com/vetformacursos?locale=pt_BR" target="_blank" rel="noopener" aria-label="Facebook"><img src="assets/wp/fb-1.svg" alt=""></a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="creditos">
+  <div class="container">
+    <span>Vetforma © 2026 - Todos os direitos reservados</span>
+    <span>Desenvolvido por Tráfego e Mídias</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn'), nav=document.getElementById('navPrincipal');
+  btn.addEventListener('click',function(){ var a=nav.classList.toggle('aberto'); btn.setAttribute('aria-expanded',a); });
+  nav.addEventListener('click',function(e){ if(e.target.tagName==='A'){ nav.classList.remove('aberto'); btn.setAttribute('aria-expanded',false); } });
+})();
+</script>
+</body>
+</html>
