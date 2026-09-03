@@ -64,15 +64,20 @@ p{margin:0 0 16px}
 .oferta-body h3{font-size:1.05rem}
 .oferta-body p{font-size:.85rem;flex:1}
 
-.avaliacoes{padding:0 0 40px;text-align:center}
+.avaliacoes{padding:0 0 60px;text-align:center}
 .avaliacoes h2{text-transform:uppercase;font-size:1.4rem}
-.avaliacoes-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:8px}
-.avaliacoes-track::-webkit-scrollbar{display:none}
-.avaliacoes-track img{scroll-snap-align:start;border-radius:var(--radius);width:min(260px,70vw);flex:0 0 auto}
-
-.selos{padding:0 0 60px}
-.selos-row{display:flex;gap:24px;justify-content:center;align-items:center;flex-wrap:wrap}
-.selos-row img{max-width:120px}
+.testimonial-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left;max-width:1000px;margin:0 auto}
+.testimonial-card{background:linear-gradient(135deg,#e2ab4f,var(--gold));border:1px solid rgba(255,255,255,.35);border-radius:18px;padding:22px 26px}
+.testimonial-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.testimonial-avatar svg{width:24px;height:24px;fill:var(--gold)}
+.testimonial-name{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.testimonial-name strong{color:#fff;font-size:.95rem}
+.testimonial-stars{color:#fff;font-size:.8rem;letter-spacing:1px}
+.testimonial-card p{color:#fff;font-size:.85rem;margin:0;opacity:.95}
+@media (max-width:700px){
+  .testimonial-grid{grid-template-columns:1fr}
+}
 
 .video-embed{margin:0 0 60px;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9;background:#000}
 .video-embed iframe{width:100%;height:100%;border:0;display:block}
@@ -183,21 +188,49 @@ p{margin:0 0 16px}
     <h2>Avaliações</h2>
   </div>
   <div class="container avaliacoes" style="padding-top:0">
-    <div class="avaliacoes-track">
-      <img src="assets/wp/lucas-r-mob.png" alt="Avaliação de aluno Vetforma">
-      <img src="assets/wp/bruno-mob.png" alt="Avaliação de aluno Vetforma">
-      <img src="assets/wp/fernanda-mob.png" alt="Avaliação de aluna Vetforma">
-      <img src="assets/wp/camila-mob.png" alt="Avaliação de aluna Vetforma">
-      <img src="assets/wp/joao-mobile.png" alt="Avaliação de aluno Vetforma">
-      <img src="assets/wp/mariana-mob.png" alt="Avaliação de aluna Vetforma">
-    </div>
-  </div>
-
-  <div class="container selos">
-    <div class="selos-row">
-      <img src="assets/wp/11.png" alt="Selo Vetforma">
-      <img src="assets/wp/22.png" alt="Selo Vetforma">
-      <img src="assets/wp/33.png" alt="Selo Vetforma">
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-head">
+          <span class="testimonial-avatar"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5Z"/></svg></span>
+          <div class="testimonial-name"><strong>Mariana A.</strong><span class="testimonial-stars">★★★★★</span></div>
+        </div>
+        <p>O curso superou minhas expectativas. A didática foi muito clara e a parte prática fez toda a diferença para eu me sentir mais segura na atuação.</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-head">
+          <span class="testimonial-avatar"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5Z"/></svg></span>
+          <div class="testimonial-name"><strong>Lucas R.</strong><span class="testimonial-stars">★★★★★</span></div>
+        </div>
+        <p>Gostei muito da experiência com a Vetforma. O conteúdo foi bem aplicado e o contato com a prática trouxe uma visão muito mais real da rotina veterinária.</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-head">
+          <span class="testimonial-avatar"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5Z"/></svg></span>
+          <div class="testimonial-name"><strong>Fernanda M.</strong><span class="testimonial-stars">★★★★★</span></div>
+        </div>
+        <p>Foi uma formação muito enriquecedora. A equipe transmite conhecimento com clareza e atenção, e isso torna o aprendizado muito mais leve e proveitoso.</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-head">
+          <span class="testimonial-avatar"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5Z"/></svg></span>
+          <div class="testimonial-name"><strong>João P.</strong><span class="testimonial-stars">★★★★★</span></div>
+        </div>
+        <p>A proposta prática realmente se destaca. Participar das atividades e acompanhar os procedimentos de perto trouxe mais confiança para minha evolução profissional.</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-head">
+          <span class="testimonial-avatar"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5Z"/></svg></span>
+          <div class="testimonial-name"><strong>Camila S.</strong><span class="testimonial-stars">★★★★★</span></div>
+        </div>
+        <p>Excelente estrutura, profissionais capacitados e uma experiência que aproxima o aluno da realidade do mercado. Foi um grande diferencial na minha formação.</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-head">
+          <span class="testimonial-avatar"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5Z"/></svg></span>
+          <div class="testimonial-name"><strong>Bruno T.</strong><span class="testimonial-stars">★★★★★</span></div>
+        </div>
+        <p>A Vetforma entrega exatamente o que propõe: aprendizado aplicado, boa orientação e uma vivência que ajuda muito no desenvolvimento técnico e profissional.</p>
+      </div>
     </div>
   </div>
 
