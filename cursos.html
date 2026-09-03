@@ -48,13 +48,19 @@ p{margin:0 0 16px}
 .hero p{max-width:640px}
 
 .gold{background:var(--gold)}
-.para-quem{padding:70px 0;text-align:center}
-.para-quem h2{text-transform:uppercase;font-size:1.5rem;margin-bottom:40px}
-.icon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
-.icon-grid img{width:52px;height:52px;margin:0 auto 14px}
-.icon-grid h3{font-size:.95rem}
-.para-quem-img{margin:0 auto 40px;max-width:900px}
-.para-quem-img img{border-radius:var(--radius)}
+.para-quem-section{background:var(--gold);min-height:795px;display:flex;align-items:center}
+.para-quem{padding:60px 0;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.para-quem-img img{border-radius:var(--radius);width:100%}
+.para-quem-content h2{text-transform:uppercase;font-size:1.6rem;color:#fff;margin-bottom:24px}
+.icon-list{display:flex;flex-direction:column;gap:16px}
+.icon-list-item{display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,#e2ab4f,var(--gold));border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:12px 26px 12px 12px}
+.icon-list-item .icon-circle{width:44px;height:44px;border-radius:50%;background:var(--navy-800);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.icon-list-item .icon-circle img{width:22px;height:22px;filter:brightness(0) invert(1)}
+.icon-list-item h3{margin:0;font-size:.95rem;color:#fff;font-weight:700}
+@media (max-width:767px){
+  .para-quem-section{min-height:auto}
+  .para-quem{grid-template-columns:1fr}
+}
 
 .ofertas{padding:0 0 70px}
 .ofertas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -144,14 +150,30 @@ p{margin:0 0 16px}
 </section>
 
 <div class="gold">
-  <div class="container para-quem">
-    <div class="para-quem-img"><img src="assets/wp/group-2018.png" alt=""></div>
-    <h2>Para quem é?</h2>
-    <div class="icon-grid">
-      <div><img src="assets/wp/estudante.svg" alt=""><h3>Estudantes de medicina veterinária</h3></div>
-      <div><img src="assets/wp/vet.svg" alt=""><h3>Veterinários em busca de atualização</h3></div>
-      <div><img src="assets/wp/tec.svg" alt=""><h3>Técnicos e auxiliares veterinários</h3></div>
-      <div><img src="assets/wp/prof.svg" alt=""><h3>Profissionais que querem ganhar prática</h3></div>
+  <div class="para-quem-section">
+    <div class="container para-quem">
+      <div class="para-quem-img"><img src="assets/wp/group-2018.png" alt=""></div>
+      <div class="para-quem-content">
+        <h2>Para quem é?</h2>
+        <div class="icon-list">
+          <div class="icon-list-item">
+            <span class="icon-circle"><img src="assets/wp/estudante.svg" alt=""></span>
+            <h3>Estudantes de medicina veterinária</h3>
+          </div>
+          <div class="icon-list-item">
+            <span class="icon-circle"><img src="assets/wp/vet.svg" alt=""></span>
+            <h3>Veterinários em busca de atualização</h3>
+          </div>
+          <div class="icon-list-item">
+            <span class="icon-circle"><img src="assets/wp/tec.svg" alt=""></span>
+            <h3>Técnicos e auxiliares veterinários</h3>
+          </div>
+          <div class="icon-list-item">
+            <span class="icon-circle"><img src="assets/wp/prof.svg" alt=""></span>
+            <h3>Profissionais que querem ganhar prática</h3>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
