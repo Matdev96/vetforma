@@ -53,13 +53,15 @@ p{margin:0 0 16px}
 .para-quem-img img{border-radius:var(--radius);width:100%}
 .para-quem-content h2{text-transform:uppercase;font-size:1.6rem;color:#fff;margin-bottom:24px}
 .icon-list{display:flex;flex-direction:column;gap:16px}
-.icon-list-item{display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,#e2ab4f,var(--gold));border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:12px 26px 12px 12px}
-.icon-list-item .icon-circle{width:44px;height:44px;border-radius:50%;background:var(--navy-800);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-.icon-list-item .icon-circle img{width:22px;height:22px;filter:brightness(0) invert(1)}
-.icon-list-item h3{margin:0;font-size:.95rem;color:#fff;font-weight:700}
+.icon-list-item{display:flex;align-items:center;gap:15px;background:linear-gradient(133deg,var(--gold),#F4B451);border-radius:151px;padding:5px 0;width:100%}
+.icon-list-item .icon-circle{flex:0 0 auto;display:flex}
+.icon-list-item .icon-circle img{width:60px;height:60px}
+.icon-list-item h3{margin:0 0 4px;font-family:'Motiva Sans','Mulish',sans-serif;font-size:20px;font-weight:700;color:#fff;text-align:start}
 @media (max-width:767px){
   .para-quem-section{min-height:auto}
   .para-quem{grid-template-columns:1fr}
+  .icon-list-item{border-radius:0;padding-top:15px;text-align:center;flex-direction:column}
+  .icon-list-item h3{font-size:18px;text-align:center}
 }
 
 .ofertas{padding:0 0 70px}
