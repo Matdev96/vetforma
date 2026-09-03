@@ -38,10 +38,16 @@ p{margin:0 0 16px}
 .btn:hover{filter:brightness(1.12)}
 .btn-gold{background:var(--gold);color:#fff}
 
-.hero{background:#f4f1ea;color:var(--navy-800);text-align:center;padding:70px 0 40px}
-.hero h1{font-size:clamp(1.5rem,3vw,2rem)}
-.hero p{max-width:680px;margin:0 auto 24px}
-.hero img{max-width:320px;margin:0 auto}
+.hero{background:#fff url('assets/wp/background-contato.png') center/cover no-repeat;color:var(--navy-800);padding:90px 0}
+.hero .container{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(1.5rem,3vw,2.1rem);text-align:left;margin:0 0 20px}
+.hero p{margin:0;text-align:left;font-size:1rem}
+.hero img{max-width:420px;margin:0 0 0 auto}
+@media (max-width:800px){
+  .hero .container{grid-template-columns:1fr;text-align:center}
+  .hero h1,.hero p{text-align:center}
+  .hero img{margin:32px auto 0}
+}
 
 .duvida{background:linear-gradient(180deg,rgba(0,45,78,.85),rgba(0,45,78,.95)),url('assets/wp/back-cavalo-azul.png') center/cover;text-align:center;padding:50px 0 0}
 
@@ -107,8 +113,10 @@ p{margin:0 0 16px}
 
 <section class="hero">
   <div class="container">
-    <h1>Por que escolher a Vetforma?</h1>
-    <p>Porque acreditamos que o verdadeiro aprendizado veterinário acontece quando o conhecimento técnico encontra a prática real. Aqui, o aluno desenvolve habilidades práticas, ganha segurança profissional e constrói uma base sólida para atuar com responsabilidade e competência na medicina veterinária.</p>
+    <div>
+      <h1>Por que escolher a Vetforma?</h1>
+      <p>Porque acreditamos que o verdadeiro aprendizado veterinário acontece quando o <strong>conhecimento técnico encontra a prática real</strong>. Aqui, o aluno <strong>desenvolve habilidades práticas</strong>, <strong>ganha segurança profissional</strong> e constrói uma base sólida para atuar com <strong>responsabilidade e competência</strong> na medicina veterinária.</p>
+    </div>
     <img src="assets/wp/logo-com-os-medicos-1.png" alt="Equipe médica veterinária Vetforma">
   </div>
 </section>
