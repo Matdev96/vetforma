@@ -49,8 +49,9 @@ p{margin:0 0 16px}
 
 .gold{background:var(--gold)}
 .para-quem-section{background:var(--gold);min-height:795px;display:flex;align-items:center}
-.para-quem{padding:60px 0;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.para-quem-img img{border-radius:var(--radius);width:100%}
+.para-quem{padding:60px 0;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;overflow:visible}
+.para-quem-img{overflow:visible}
+.para-quem-img img{width:88%;max-width:none;margin:85px 0 0 -464px}
 .para-quem-content h2{text-transform:uppercase;font-size:1.6rem;color:#fff;margin-bottom:24px}
 .icon-list{display:flex;flex-direction:column;gap:16px}
 .icon-list-item{display:flex;align-items:center;gap:15px;background:linear-gradient(133deg,var(--gold),#F4B451);border-radius:151px;padding:5px 0;width:100%}
@@ -60,6 +61,7 @@ p{margin:0 0 16px}
 @media (max-width:767px){
   .para-quem-section{min-height:auto}
   .para-quem{grid-template-columns:1fr}
+  .para-quem-img img{width:100%;margin:10%}
   .icon-list-item{border-radius:0;padding-top:15px;text-align:center;flex-direction:column}
   .icon-list-item h3{font-size:18px;text-align:center}
 }
