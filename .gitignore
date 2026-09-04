@@ -1,0 +1,4 @@
+# Credenciais/protecao da area admin - nao publicar no repo publico.
+# Copiar manualmente para o servidor no upload via FTP/hPanel.
+admin/.htpasswd
+admin/.htaccess
